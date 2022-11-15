@@ -29,7 +29,61 @@
     </q-drawer>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right">
-      <!-- drawer content -->
+      <q-input
+        outlined
+        rounded
+        dense
+        class="q-a-md q-ma-md"
+        placeholder="Search Qwitter"
+      >
+        <template v-slot:prepend>
+          <q-icon name="search" />
+        </template>
+      </q-input>
+      <q-list>
+        <q-item>
+          <q-item-section>
+            <q-item-label>Single line item</q-item-label>
+            <q-item-label caption lines="2"
+              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.</q-item-label
+            >
+          </q-item-section>
+
+          <q-item-section side top>
+            <q-item-label caption>5 min ago</q-item-label>
+            <q-icon name="star" color="yellow" />
+          </q-item-section>
+        </q-item>
+        <q-item>
+          <q-item-section>
+            <q-item-label>Single line item</q-item-label>
+            <q-item-label caption lines="2"
+              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.</q-item-label
+            >
+          </q-item-section>
+
+          <q-item-section side top>
+            <q-item-label caption>5 min ago</q-item-label>
+            <q-icon name="star" color="yellow" />
+          </q-item-section>
+        </q-item>
+        <q-item>
+          <q-item-section>
+            <q-item-label>Single line item</q-item-label>
+            <q-item-label caption lines="2"
+              >Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.</q-item-label
+            >
+          </q-item-section>
+
+          <q-item-section side top>
+            <q-item-label caption>5 min ago</q-item-label>
+            <q-icon name="star" color="yellow" />
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -44,11 +98,16 @@ import { ref } from "vue";
 export default {
   setup() {
     const leftDrawerOpen = ref(false);
+    const rightDrawerOpen = ref(false);
 
     return {
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+      rightDrawerOpen,
+      toggleRightDrawer() {
+        rightDrawerOpen.value = !rightDrawerOpen.value;
       },
     };
   },
