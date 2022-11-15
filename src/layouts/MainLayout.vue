@@ -1,18 +1,14 @@
 <template>
   <q-layout view="lHr lpR fFf">
 
-    <q-header bordered class="bg-primary text-white">
+    <q-header bordered class="bg-white text-black">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-          </q-avatar>
-          Title
+        <q-toolbar-title class="text-weight-bold">
+          Qwitter
         </q-toolbar-title>
 
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
     </q-header>
 
@@ -37,7 +33,6 @@ import { ref } from 'vue'
 export default {
   setup () {
     const leftDrawerOpen = ref(false)
-    const rightDrawerOpen = ref(false)
 
     return {
       leftDrawerOpen,
@@ -45,10 +40,6 @@ export default {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
 
-      rightDrawerOpen,
-      toggleRightDrawer () {
-        rightDrawerOpen.value = !rightDrawerOpen.value
-      }
     }
   }
 }
