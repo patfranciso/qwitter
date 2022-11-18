@@ -31,6 +31,52 @@
         />
       </div>
     </div>
+    <q-list>
+      <q-item class="q-py-md">
+        <q-item-section avatar>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section>
+          <q-item-label
+            ><strong>John Doe</strong
+            ><span class="text-grey-7">@johndoe</span></q-item-label
+          >
+          <q-item-label class="qweet-content"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
+            praesentium incidunt, adipisci quisquam molestias excepturi
+            officiis, natus esse facilis at expedita et ipsam alias deleniti
+            illo? Provident veritatis illum iure. Adipisci quisquam molestias
+            excepturi officiis, natus esse facilis at expedita et ipsam alias
+            deleniti illo? Provident veritatis illum iure.
+          </q-item-label>
+        </q-item-section>
+
+        <q-item-section side top> 1 min ago </q-item-section>
+      </q-item>
+
+      <q-separator inset="item" />
+
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/avatar4.jpg" />
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section>
+          <q-item-label lines="1">Linear Project</q-item-label>
+          <q-item-label caption lines="2">
+            <span class="text-weight-bold">John</span>
+            -- Can we schedule a call for tomorrow?
+          </q-item-label>
+        </q-item-section>
+
+        <q-item-section side top> 1 min ago </q-item-section>
+      </q-item>
+    </q-list>
   </q-page>
 </template>
 
