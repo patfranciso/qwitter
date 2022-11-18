@@ -2,16 +2,8 @@
   <q-page>
     <div class="q-py-lg q-px-md row items-end q-col-gutter-md">
       <div class="col">
-        <q-input
-          bottom-slots
-          v-model="newQweetContent"
-          placeholder="What's happening?"
-          counter
-          maxlength="280"
-          :dense="dense"
-          autogrow
-          class="new-qweet"
-        >
+        <q-input bottom-slots v-model="newQweetContent" placeholder="What's happening?" counter maxlength="280"
+          :dense="dense" autogrow class="new-qweet">
           <template v-slot:before>
             <q-avatar size="xl">
               <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
@@ -20,37 +12,25 @@
         </q-input>
       </div>
       <div class="col col-shrink">
-        <q-btn
-          unelevated
-          :disabled="!newQweetContent"
-          rounded
-          no-caps
-          color="primary"
-          label="Qweet"
-          class="q-mb-md"
-        />
+        <q-btn unelevated :disabled="!newQweetContent" rounded no-caps color="primary" label="Qweet" class="q-mb-md" />
       </div>
     </div>
     <q-list>
       <q-item class="q-py-md">
-        <q-item-section avatar>
+        <q-item-section avatar top>
           <q-avatar>
             <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
           </q-avatar>
         </q-item-section>
 
         <q-item-section>
-          <q-item-label
-            ><strong>John Doe</strong
-            ><span class="text-grey-7">@johndoe</span></q-item-label
-          >
-          <q-item-label class="qweet-content">
+          <q-item-label class="text-subtitle1"><strong>John Doe</strong><span class="text-grey-7">@johndoe</span>
+          </q-item-label>
+          <q-item-label class="qweet-content text-body1">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
             praesentium incidunt, adipisci quisquam molestias excepturi
             officiis, natus esse facilis at expedita et ipsam alias deleniti
-            illo? Provident veritatis illum iure. 
-
-            Adipisci quisquam molestias
+            illo? Provident veritatis illum iure. Adipisci quisquam molestias
             excepturi officiis, natus esse facilis at expedita et ipsam alias
             deleniti illo? Provident veritatis illum iure.
           </q-item-label>
