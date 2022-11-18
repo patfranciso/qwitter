@@ -34,6 +34,7 @@
             excepturi officiis, natus esse facilis at expedita et ipsam alias
             deleniti illo? Provident veritatis illum iure.
           </q-item-label>
+          <div class="row justify-between q-mt-sm"><q-btn color="grey" icon="far fa-comment"  flat size="sm" /><q-btn color="grey" icon="fas fa-retweet"  flat size="sm" /><q-btn color="grey" icon="far fa-heart"  flat size="sm" /><q-btn color="grey" icon="fas fa-trash"  flat size="sm" /></div>
         </q-item-section>
 
         <q-item-section side top> 1 min ago </q-item-section>
