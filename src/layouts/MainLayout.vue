@@ -7,7 +7,7 @@
         <q-toolbar-title class="text-weight-bold">
           <span class="gt-sm">Qwitter</span>
           <q-icon
-            name="fas fa-dove "
+            name="fas fa-dove"
             size="sm"
             color="primary"
             class="q-pa-md lt-md header-icon"
@@ -17,6 +17,7 @@
     </q-header>
 
     <q-drawer :width="283" show-if-above v-model="leftDrawerOpen" side="left">
+      <q-icon class="q-pa-md" name="fas fa-dove" size="lg" color="primary" />
       <q-list>
         <q-item to="/" clickable v-ripple>
           <q-item-section avatar>
