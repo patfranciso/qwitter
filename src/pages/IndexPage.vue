@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="q-py-lg q-px-md row items-end">
+    <div class="q-py-lg q-px-md row items-end q-col-gutter-md">
       <div class="col">
         <q-input
           bottom-slots
@@ -27,6 +27,7 @@
           no-caps
           color="primary"
           label="Qweet"
+          class="q-mb-md"
         />
       </div>
     </div>
