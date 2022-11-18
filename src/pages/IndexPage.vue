@@ -44,11 +44,13 @@
             ><strong>John Doe</strong
             ><span class="text-grey-7">@johndoe</span></q-item-label
           >
-          <q-item-label class="qweet-content"
-            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
+          <q-item-label class="qweet-content">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
             praesentium incidunt, adipisci quisquam molestias excepturi
             officiis, natus esse facilis at expedita et ipsam alias deleniti
-            illo? Provident veritatis illum iure. Adipisci quisquam molestias
+            illo? Provident veritatis illum iure. 
+
+            Adipisci quisquam molestias
             excepturi officiis, natus esse facilis at expedita et ipsam alias
             deleniti illo? Provident veritatis illum iure.
           </q-item-label>
@@ -98,4 +100,6 @@ export default defineComponent({
   textarea
     font-size: 16px
     line-height: 1.6
+.qweet-content
+  white-space: pre-line
 </style>
