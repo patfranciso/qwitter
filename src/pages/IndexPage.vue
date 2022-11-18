@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="q-py-lg">
+    <div class="q-py-lg q-px-md">
       <q-input
         bottom-slots
         v-model="newQweetContent"
@@ -8,6 +8,8 @@
         counter
         maxlength="280"
         :dense="dense"
+        autogrow
+        class="new-qweet"
       >
         <template v-slot:before>
           <q-avatar size="xl">
@@ -16,7 +18,14 @@
         </template>
 
         <template v-slot:after>
-          <q-btn round dense flat icon="send" />
+          <q-btn
+            unelevated
+            :disabled="!newQweetContent"
+            rounded
+            no-caps
+            color="primary"
+            label="Qweet"
+          />
         </template>
       </q-input>
     </div>
@@ -35,3 +44,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="sass">
+.new-qweet
+  textarea
+    font-size: 16px
+    line-height: 1.6
+</style>
