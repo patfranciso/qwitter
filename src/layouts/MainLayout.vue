@@ -4,12 +4,19 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title class="text-weight-bold"> Qwitter </q-toolbar-title>
+        <q-toolbar-title class="text-weight-bold">
+          <span class="gt-sm">Qwitter</span>
+          <q-icon
+            name="fas fa-dove "
+            size="sm"
+            color="primary"
+            class="q-pa-md lt-md absolute-center"
+          />
+        </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
     <q-drawer :width="283" show-if-above v-model="leftDrawerOpen" side="left">
-      <q-icon name="fas fa-dove" size="lg" color="primary" class="q-pa-md" />
       <q-list>
         <q-item to="/" clickable v-ripple>
           <q-item-section avatar>
