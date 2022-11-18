@@ -10,7 +10,7 @@
             name="fas fa-dove "
             size="sm"
             color="primary"
-            class="q-pa-md lt-md absolute-center"
+            class="q-pa-md lt-md header-icon"
           />
         </q-toolbar-title>
       </q-toolbar>
@@ -120,3 +120,11 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+.header-icon
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
+</style>
