@@ -3,29 +3,17 @@
     <div class="q-py-lg">
       <q-input
         bottom-slots
-        v-model="text"
-        label="Label"
+        v-model="newQweetContent"
+        placeholder="What's happening?"
         counter
-        maxlength="12"
+        maxlength="280"
         :dense="dense"
       >
         <template v-slot:before>
-          <q-avatar>
+          <q-avatar size="xl">
             <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
           </q-avatar>
         </template>
-
-        <template v-slot:append>
-          <q-icon
-            v-if="text !== ''"
-            name="close"
-            @click="text = ''"
-            class="cursor-pointer"
-          />
-          <q-icon name="schedule" />
-        </template>
-
-        <template v-slot:hint> Field hint </template>
 
         <template v-slot:after>
           <q-btn round dense flat icon="send" />
@@ -40,5 +28,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "IndexPage",
+  data() {
+    return {
+      newQweetContent: "",
+    };
+  },
 });
 </script>
