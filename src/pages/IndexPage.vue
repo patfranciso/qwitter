@@ -31,8 +31,8 @@
         />
       </div>
     </div>
-    <q-list>
-      <q-item class="q-py-md">
+    <q-list separator>
+      <q-item class="q-py-md" v-for="qweet in qweets" :key="date">
         <q-item-section avatar top>
           <q-avatar>
             <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
@@ -43,13 +43,8 @@
           <q-item-label class="text-subtitle1"
             ><strong>John Doe</strong><span class="text-grey-7">@johndoe</span>
           </q-item-label>
-          <q-item-label class="qweet-content text-body1">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
-            praesentium incidunt, adipisci quisquam molestias excepturi
-            officiis, natus esse facilis at expedita et ipsam alias deleniti
-            illo? Provident veritatis illum iure. Adipisci quisquam molestias
-            excepturi officiis, natus esse facilis at expedita et ipsam alias
-            deleniti illo? Provident veritatis illum iure.
+          <q-item-label class="qweet-content text-body1"
+            >{{ qweet.content }}
           </q-item-label>
           <div class="qweet-icons row justify-between q-mt-sm">
             <q-btn color="grey" icon="far fa-comment" flat size="sm" />
@@ -59,28 +54,10 @@
           </div>
         </q-item-section>
 
-        <q-item-section side top> 1 min ago </q-item-section>
+        <q-item-section side top> {{ qweet.date }} </q-item-section>
       </q-item>
 
       <q-separator inset="item" />
-
-      <q-item clickable v-ripple>
-        <q-item-section avatar>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar4.jpg" />
-          </q-avatar>
-        </q-item-section>
-
-        <q-item-section>
-          <q-item-label lines="1">Linear Project</q-item-label>
-          <q-item-label caption lines="2">
-            <span class="text-weight-bold">John</span>
-            -- Can we schedule a call for tomorrow?
-          </q-item-label>
-        </q-item-section>
-
-        <q-item-section side top> 1 min ago </q-item-section>
-      </q-item>
     </q-list>
   </q-page>
 </template>
@@ -93,6 +70,27 @@ export default defineComponent({
   data() {
     return {
       newQweetContent: "",
+      qweets: [
+        {
+          content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+          date: 1668812310710,
+        },
+        {
+          content:
+            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+          date: 1668812310810,
+        },
+        {
+          content:
+            "Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+          date: 1668812310910,
+        },
+        {
+          content:
+            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+          date: 1668812311110,
+        },
+      ],
     };
   },
 });
