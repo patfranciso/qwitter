@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h5>Home</h5>
+    <h5>About</h5>
   </q-page>
 </template>
 
@@ -8,6 +8,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "IndexPage",
+  name: "AboutPage",
 });
 </script>
