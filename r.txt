@@ -7,3 +7,6 @@ $ quasar new boot firebase
 
 https://firebase.google.com/docs/firestore/manage-data/delete-data?hl=en&authuser=0
   delete a qweet
+
+https://firebase.google.com/docs/firestore/manage-data/add-data?hl=en&authuser=0#update-data
+  update a qweet

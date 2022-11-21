@@ -61,6 +61,7 @@
                 <q-btn color="grey" icon="far fa-comment" flat size="sm" />
                 <q-btn color="grey" icon="fas fa-retweet" flat size="sm" />
                 <q-btn
+                  @click="toggleLiked(qweet)"
                   :color="qweet.liked ? 'pink' : 'grey'"
                   :icon="qweet.liked ? 'fas fa-heart' : 'far fa-heart'"
                   flat
@@ -93,6 +94,7 @@ import {
   orderBy,
   addDoc,
   deleteDoc,
+  updateDoc,
   doc,
 } from 'src/boot/firebase';
 import { formatDistance } from 'date-fns';
@@ -114,6 +116,15 @@ async function addNewQweet(e) {
 }
 async function deleteQweet(qweet) {
   await deleteDoc(doc(db, 'qweets', qweet.id));
+}
+async function toggleLiked(qweet) {
+  console.log('Toggle liked');
+  const washingtonRef = doc(db, 'qweets', qweet.id);
+
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(washingtonRef, {
+    liked: !qweet.liked,
+  });
 }
 onMounted(() => {
   console.log(`The component is now mounted!`);

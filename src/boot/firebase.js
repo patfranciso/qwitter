@@ -11,6 +11,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  updateDoc,
 } from 'firebase/firestore';
 import { getStorage, connectStorageEmulator } from 'firebase/storage';
 
@@ -32,4 +33,5 @@ export {
   addDoc,
   deleteDoc,
   doc,
+  updateDoc,
 };
