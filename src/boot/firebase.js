@@ -8,6 +8,7 @@ import {
   where,
   onSnapshot,
   orderBy,
+  addDoc,
 } from 'firebase/firestore';
 import { getStorage, connectStorageEmulator } from 'firebase/storage';
 
@@ -19,4 +20,4 @@ connectFirestoreEmulator(db, 'localhost', 8081);
 const storage = getStorage();
 connectStorageEmulator(storage, 'localhost', 9199);
 
-export { db, collection, query, where, onSnapshot, orderBy };
+export { db, collection, query, where, onSnapshot, orderBy, addDoc };

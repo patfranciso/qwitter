@@ -80,7 +80,14 @@
 </template>
 
 <script setup>
-import { db, query, collection, onSnapshot, orderBy } from 'src/boot/firebase';
+import {
+  db,
+  query,
+  collection,
+  onSnapshot,
+  orderBy,
+  addDoc,
+} from 'src/boot/firebase';
 import { formatDistance } from 'date-fns';
 import { onMounted, ref } from 'vue';
 const name = 'IndexPage';
@@ -89,12 +96,12 @@ const qweets = ref([]);
 function relativeDate(value) {
   return formatDistance(value, new Date());
 }
-function addNewQweet(e) {
+async function addNewQweet(e) {
   let newQweet = {
     content: newQweetContent.value,
     date: Date.now(),
   };
-  qweets.value.unshift(newQweet);
+  const docRef = await addDoc(collection(db, 'qweets'), newQweet);
   newQweetContent.value = '';
 }
 function deleteQweet(qweet) {
