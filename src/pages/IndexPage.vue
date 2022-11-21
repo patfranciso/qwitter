@@ -51,7 +51,13 @@
             <q-btn color="grey" icon="far fa-comment" flat size="sm" />
             <q-btn color="grey" icon="fas fa-retweet" flat size="sm" />
             <q-btn color="grey" icon="far fa-heart" flat size="sm" />
-            <q-btn color="grey" icon="fas fa-trash" flat size="sm" />
+            <q-btn
+              color="grey"
+              icon="fas fa-trash"
+              flat
+              size="sm"
+              @click="deleteQweet(qweet)"
+            />
           </div>
         </q-item-section>
 
@@ -70,19 +76,20 @@ import { formatDistance } from "date-fns";
 import { ref } from "vue";
 const name = "IndexPage";
 const newQweetContent = ref("");
-const qweets = [
+const qweets = ref([
   {
-    content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    content: `"When you are content to be simply yourself and don't compare or compete, everybody will respect you."
+- Laozi`,
     date: 1668812310710,
   },
   {
-    content:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+    content: `"You have enemies? Good. That means you've stood up for something, sometime in your life."
+- Winston Churchill`,
     date: 1668812310810,
   },
   {
-    content:
-      "Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+    content: `"Let the future tell the truth, and evaluate each one according to his work and accomplishments. The present is theirs; the future, for which I have really worked, is mine."
+- Nikola Tesla`,
     date: 1668812310910,
   },
   {
@@ -90,12 +97,24 @@ const qweets = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
     date: 1668812311110,
   },
-];
+]);
 function relativeDate(value) {
   return formatDistance(value, new Date());
 }
 function addNewQweet(e) {
-  console.log("addNewQweet");
+  let newQweet = {
+    content: newQweetContent.value,
+    date: Date.now(),
+  };
+  qweets.value.unshift(newQweet);
+  newQweetContent.value = "";
+}
+function deleteQweet(qweet) {
+  console.log("Delete qweet");
+  let dateToDelete = qweet.date;
+  const index = qweets.value.findIndex((qweet) => qweet.date === dateToDelete);
+  console.log({ index });
+  qweets.value.splice(index, 1);
 }
 </script>
 
