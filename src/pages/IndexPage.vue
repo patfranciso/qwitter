@@ -39,7 +39,7 @@
           enter-active-class="animated fadeIn slower"
           leave-active-class="animated fadeOut slower"
         >
-          <q-item class="q-py-md" v-for="qweet in qweets" :key="qweet.date">
+          <q-item class="q-py-md" v-for="qweet in qweets" :key="qweet.id">
             <q-item-section avatar top>
               <q-avatar>
                 <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
@@ -119,6 +119,7 @@ onMounted(() => {
     snapshot.docChanges().forEach(change => {
       console.log({ change });
       let qweetChange = change.doc.data();
+      qweetChange.id = change.doc.id;
       if (change.type === 'added') {
         console.log('New Qweet: ', qweetChange);
         qweets.value.unshift(qweetChange);
@@ -128,6 +129,10 @@ onMounted(() => {
       }
       if (change.type === 'removed') {
         console.log('Removed Qweet: ', qweetChange);
+        let index = qweets.value.findIndex(
+          qweet => qweet.id === qweetChange.id
+        );
+        qweets.value.splice(index, 1);
       }
     });
   });
