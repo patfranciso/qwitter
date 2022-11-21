@@ -3,3 +3,7 @@ $ npm i date-fns
 $ npm install firebase
 
 $ quasar new boot firebase
+
+
+https://firebase.google.com/docs/firestore/manage-data/delete-data?hl=en&authuser=0
+  delete a qweet

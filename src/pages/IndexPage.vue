@@ -87,6 +87,8 @@ import {
   onSnapshot,
   orderBy,
   addDoc,
+  deleteDoc,
+  doc,
 } from 'src/boot/firebase';
 import { formatDistance } from 'date-fns';
 import { onMounted, ref } from 'vue';
@@ -104,12 +106,8 @@ async function addNewQweet(e) {
   const docRef = await addDoc(collection(db, 'qweets'), newQweet);
   newQweetContent.value = '';
 }
-function deleteQweet(qweet) {
-  console.log('Delete qweet');
-  let dateToDelete = qweet.date;
-  const index = qweets.value.findIndex(qweet => qweet.date === dateToDelete);
-  console.log({ index });
-  qweets.value.splice(index, 1);
+async function deleteQweet(qweet) {
+  await deleteDoc(doc(db, 'qweets', qweet.id));
 }
 onMounted(() => {
   console.log(`The component is now mounted!`);
