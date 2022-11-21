@@ -100,25 +100,13 @@
   </q-layout>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
+const leftDrawerOpen = ref(false);
+const rightDrawerOpen = ref(false);
 
-export default {
-  setup() {
-    const leftDrawerOpen = ref(false);
-    const rightDrawerOpen = ref(false);
-
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-      rightDrawerOpen,
-      toggleRightDrawer() {
-        rightDrawerOpen.value = !rightDrawerOpen.value;
-      },
-    };
-  },
+const toggleLeftDrawer = () => {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
 };
 </script>
 
