@@ -107,6 +107,7 @@ async function addNewQweet(e) {
   let newQweet = {
     content: newQweetContent.value,
     date: Date.now(),
+    liked: false,
   };
   const docRef = await addDoc(collection(db, 'qweets'), newQweet);
   newQweetContent.value = '';
@@ -129,6 +130,10 @@ onMounted(() => {
       }
       if (change.type === 'modified') {
         console.log('Modified Qweet: ', qweetChange);
+        let index = qweets.value.findIndex(
+          qweet => qweet.id === qweetChange.id
+        );
+        Object.assign(qweets.value[index], qweetChange);
       }
       if (change.type === 'removed') {
         console.log('Removed Qweet: ', qweetChange);
