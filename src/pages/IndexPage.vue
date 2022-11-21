@@ -8,7 +8,7 @@
           placeholder="What's happening?"
           counter
           maxlength="280"
-          :dense="dense"
+          dense
           autogrow
           class="new-qweet"
         >
@@ -28,11 +28,12 @@
           color="primary"
           label="Qweet"
           class="q-mb-md"
+          @click="addNewQweet"
         />
       </div>
     </div>
     <q-list separator>
-      <q-item class="q-py-md" v-for="qweet in qweets" :key="date">
+      <q-item class="q-py-md" v-for="qweet in qweets" :key="qweet.date">
         <q-item-section avatar top>
           <q-avatar>
             <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
@@ -55,7 +56,7 @@
         </q-item-section>
 
         <q-item-section side top>
-          {{ qweet.date | relativeDate }}
+          {{ relativeDate(qweet.date) }}
         </q-item-section>
       </q-item>
 
@@ -64,44 +65,38 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { formatDistance } from "date-fns";
-
-export default defineComponent({
-  name: "IndexPage",
-  data() {
-    return {
-      newQweetContent: "",
-      qweets: [
-        {
-          content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-          date: 1668812310710,
-        },
-        {
-          content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
-          date: 1668812310810,
-        },
-        {
-          content:
-            "Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
-          date: 1668812310910,
-        },
-        {
-          content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
-          date: 1668812311110,
-        },
-      ],
-    };
+import { ref } from "vue";
+const name = "IndexPage";
+const newQweetContent = ref("");
+const qweets = [
+  {
+    content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    date: 1668812310710,
   },
-  filters: {
-    relativeDate(value) {
-      return formatDistance(value, new Date());
-    },
+  {
+    content:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+    date: 1668812310810,
   },
-});
+  {
+    content:
+      "Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+    date: 1668812310910,
+  },
+  {
+    content:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officiis repellat quos. Libero magnam recusandae, adipisci rerum laborum ipsam aliquid, incidunt numquam distinctio non, cumque omnis earum! Expedita, error optio.",
+    date: 1668812311110,
+  },
+];
+function relativeDate(value) {
+  return formatDistance(value, new Date());
+}
+function addNewQweet(e) {
+  console.log("addNewQweet");
+}
 </script>
 
 <style lang="sass">
