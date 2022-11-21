@@ -48,7 +48,10 @@
           <q-item-section>
             <q-item-label class="text-subtitle1"
               ><strong>John Doe</strong
-              ><span class="text-grey-7">@johndoe</span>
+              ><span class="text-grey-7">
+                &nbsp;@johndoe <br class="lt-md" />&bull;
+                {{ relativeDate(qweet.date) }}</span
+              >
             </q-item-label>
             <q-item-label class="qweet-content text-body1"
               >{{ qweet.content }}
@@ -65,10 +68,6 @@
                 @click="deleteQweet(qweet)"
               />
             </div>
-          </q-item-section>
-
-          <q-item-section side top>
-            {{ relativeDate(qweet.date) }}
           </q-item-section>
         </q-item>
 
