@@ -60,7 +60,12 @@
               <div class="qweet-icons row justify-between q-mt-sm">
                 <q-btn color="grey" icon="far fa-comment" flat size="sm" />
                 <q-btn color="grey" icon="fas fa-retweet" flat size="sm" />
-                <q-btn color="grey" icon="far fa-heart" flat size="sm" />
+                <q-btn
+                  :color="qweet.liked ? 'pink' : 'grey'"
+                  :icon="qweet.liked ? 'fas fa-heart' : 'far fa-heart'"
+                  flat
+                  size="sm"
+                />
                 <q-btn
                   color="grey"
                   icon="fas fa-trash"
