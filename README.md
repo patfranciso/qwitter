@@ -5,7 +5,7 @@ A Quasar Project
 A Cross-Platform Twitter Clone created with Quasar Framework v2, VueJS 3 & Firebase 9.
 
 ## Setup Firebase
-- Create a firease config file by running the command:
+- Create a firebase config file by running the command:
 ```bash
    cp firebaseConfig.example.js firebaseConfig.js
 ```
